@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Mahasiswa</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    .tab {
+        overflow: hidden;
+        border: 1px solid #878b8e;
+        background-color: #f1f1f1;
+    }
+
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+    }
+
+    .tab button:hover {
+        background-color: #0f0f0f;
+    }
+
+    .tab button.active {
+        background-color: #ccc;
+    }
+
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid#878b8e;
+        border-top: none;
+    }
+
+    .tabcontent.active {
+        display: block;
+    }
+
+    /* Style untuk gambar */
+    #preview {
+        max-width: 100%;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Data Mahasiswa</h1>
+    <!-- Tab links -->
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'input')">Input Nilai Mahasiswa</button>
+        <button class="tablinks" onclick="openTab(event, 'array')">Data Array</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="input" class="tabcontent active">
+        <form id="nilaiForm">
+            <input type="text" id="nim" placeholder="NIM">
+            <input type="text" id="nama" placeholder="Nama">
+            <select id="matkul">
+                <option value="">Pilih Mata Kuliah</option>
+                <option value="Pendidikn Pancasila">Pendidikan Pancasila</option>
+                <option value="Arsitektur Komputer">Arsitektur Komputer</option>
+                <option value="Pemograman Komputer2">Pemograman Komputer2</option>
+                <option value="Praktik Pemograman Komputer2">Praktik Pemograman Komputer2</option>
+                <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+                <option value="Diskrit1">Diskrit1</option>
+                <option value="Kalkulus2">Kalkulus2</option>
+                <option value="Struktur Data dan Algoritma">Struktur Data dan Algoritma</option>
+                <option value="Sistem Operasi">Sistem Operasi</option>
+                <option value="Desain Perangkat Lunak">Desain Perangkat Lunak</option>
+            </select>
+            <input type="number" id="nilai" placeholder="Nilai Akhir">
+            <!-- Tambahkan input untuk foto -->
+            <input type="file" id="foto" accept="image/*">
+            <button type="button" onclick="tampilkanNilai()">TAMPIL</button>
+            <button type="button" onclick="resetForm()">RESET</button>
+        </form>
+
+        <div id="hasil" style="display: none;">
+            <h2>Hasil:</h2>
+            <p id="hasilNIM"></p>
+            <p id="hasilNama"></p>
+            <p id="hasilMatkul"></p>
+            <p id="hasilNilai"></p>
+            <p id="hasilHuruf"></p>
+            <p id="hasilIndeks"></p>
+            <!-- Tampilkan gambar -->
+            <img id="preview" src="#" alt="Foto Mahasiswa">
+        </div>
+    </div>
+
+    <div id="array" class="tabcontent">
+        <h2>Data Array</h2>
+        <div class="data">
+            <h3>Nama Mahasiswa:M.Fario Afendi</h3>
+            <ul id="namaMhs"></ul>
+        </div>
+        <div class="data">
+            <h3>Tahun Lahir Mahasiswa:2005</h3>
+            <ul id="tahunLahir"></ul>
+        </div>
+        <div class="data">
+            <h3>Handphone Mahasiswa:082265277867</h3>
+            <ul id="handphoneMhs"></ul>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Default open the first tab
+    document.getElementsByClassName("tablinks")[0].click();
+
+    // Tampilkan preview gambar
+    document.getElementById("foto").addEventListener("change", function () {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById("preview").src = e.target.result;
+        };
+        reader.readAsDataURL(this.files[0]);
+    });
+</script>
+
+</body>
+</html> 

@@ -1,0 +1,111 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling untuk container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #878b8e;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling untuk judul */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Styling untuk tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.tab button {
+    background-color: #f4f4f4;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    border-radius: 8px 8px 0 0;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ddd;
+}
+
+/* Style untuk tab content */
+.tabcontent {
+    display: none;
+    padding: 20px;
+    border: 1px solid #080808;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.tabcontent.active {
+    display: block;
+}
+
+/* Style untuk form input */
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: calc(100% - 10px);
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #292828;
+    border-radius: 4px;
+}
+
+input[type="file"] {
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #425a6c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #5b6771;
+}
+
+/* Styling untuk hasil */
+#hasil {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#hasil img {
+    max-width: 200px;
+    margin-top: 10px;
+    border-radius: 4px;
+}
